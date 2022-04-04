@@ -1,6 +1,6 @@
 // BASE SETUP
 // =============================================================================
-import cors from 'cors';
+var cors = require('cors');
 
 // call the packages we need
 var express = require('express'); // call express
