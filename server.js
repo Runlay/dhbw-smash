@@ -26,45 +26,46 @@ var router = express.Router(); // get an instance of the express Router
 router.get('/', function(req, res) {
     return res.json({ message: 'Tinder DHBW Web App!' });
 });
-
+// return random profile  
 router.get('/profiles', function(req, res) {
     return res.json({name:'Claire-Ann Lage',
             age:'28',
             ort:'Karlsruhe',
             studiengang:'International Management',
-            link:'https://cdn.businessinsider.de/wp-content/uploads/2021/05/609e801067e41a00186220fb-1024x768.jpg',
-            hobbies:'kochen, reiten'} );
-});
-
-router.get('/test', function(req, res) {
-    return res.json({name:'Claire-Ann Lage',
-            age:'28',
-            ort:'Karlsruhe',
-            studiengang:'International Management',
-            link:'https://cdn.businessinsider.de/wp-content/uploads/2021/05/609e801067e41a00186220fb-1024x768.jpg',
+            link:'https://c6oxm85c.cloudimg.io/width/700/png-lossless.fgaussian0.foil1/https://az617363.vo.msecnd.net/imgmodels/models/MD10002949/r1-07980-00136be87ce8b78f472bf44518b096612dcd.jpg',
             hobbies:'kochen, reiten'} );
 });
 
 router.get('/ranking', function(req, res) {
-    return res.json([{name:'Claire-Ann Lage',
-            age:'28',
-            ort:'Karlsruhe',
-            studiengang:'International Management',
-            link:'https://cdn.businessinsider.de/wp-content/uploads/2021/05/609e801067e41a00186220fb-1024x768.jpg',
-            hobbies:'kochen, reiten'},
-    	    {name:'Claire-Ann Lage',
-            age:'28',
-            ort:'Karlsruhe',
-            studiengang:'International Management',
-            link:'https://cdn.businessinsider.de/wp-content/uploads/2021/05/609e801067e41a00186220fb-1024x768.jpg',
-            hobbies:'kochen, reiten'},
-            {name:'Claire-Ann Lage',
-            age:'28',
-            ort:'Karlsruhe',
-            studiengang:'International Management',
-            link:'https://cdn.businessinsider.de/wp-content/uploads/2021/05/609e801067e41a00186220fb-1024x768.jpg',
-            hobbies:'kochen, reiten'}]);
-        });
+    return res.json(
+        [
+            {
+                name:'Claire-Ann Lage',
+                age:'28',
+                ort:'Karlsruhe',
+                studiengang:'International Management',
+                link:'https://cdn.businessinsider.de/wp-content/uploads/2021/05/609e801067e41a00186220fb-1024x768.jpg',
+                hobbies:'kochen, reiten'
+            },
+            {
+                name:'Claire-Ann Lage',
+                age:'28',
+                ort:'Karlsruhe',
+                studiengang:'International Management',
+                link:'https://cdn.businessinsider.de/wp-content/uploads/2021/05/609e801067e41a00186220fb-1024x768.jpg',
+                hobbies:'kochen, reiten'
+            },
+            {   
+                name:'Claire-Ann Lage',
+                age:'28',
+                ort:'Karlsruhe',
+                studiengang:'International Management',
+                link:'https://cdn.businessinsider.de/wp-content/uploads/2021/05/609e801067e41a00186220fb-1024x768.jpg',
+                hobbies:'kochen, reiten'
+            }
+        ]
+        );
+    });
 
     router.get('/map', function(req, res) {
            return res.json({ 'standort':[{'karlsruhe': '30'}, {'mannheim':'2'}, {'stuttgart':'3'}, {'lörrach':'4'}] });
