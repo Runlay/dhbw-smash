@@ -62,7 +62,7 @@ router.get('/ranking', function(req, res) {
         });
 
     router.get('/map', function(req, res) {
-           return res.json({ 'standort':[{'karlsruhe': '1'}, {'mannheim':'2'}, {'stuttgart':'3'}, {'lörrach':'4'}] });
+           return res.json({ 'standort':[{'karlsruhe': '30'}, {'mannheim':'2'}, {'stuttgart':'3'}, {'lörrach':'4'}] });
         });
 
 // more routes for our API will happen here
