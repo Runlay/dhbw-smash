@@ -31,6 +31,15 @@ router.get('/profiles', function(req, res) {
             hobbies:'kochen, reiten'} );
 });
 
+router.get('/test', function(req, res) {
+    return res.json({name:'Claire-Ann Lage',
+            age:'28',
+            ort:'Karlsruhe',
+            studiengang:'International Management',
+            link:'https://cdn.businessinsider.de/wp-content/uploads/2021/05/609e801067e41a00186220fb-1024x768.jpg',
+            hobbies:'kochen, reiten'} );
+});
+
 router.get('/ranking', function(req, res) {
     return res.json([{name:'Claire-Ann Lage',
             age:'28',
