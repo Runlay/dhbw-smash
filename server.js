@@ -1,5 +1,6 @@
 // BASE SETUP
 // =============================================================================
+import cors from 'cors';
 
 // call the packages we need
 var express = require('express'); // call express
@@ -10,6 +11,7 @@ var bodyParser = require('body-parser');
 // this will let us get the data from a POST
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(cors());
 
 var port = process.env.PORT || 8080; // set our port
 
