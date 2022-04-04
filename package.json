@@ -1,0 +1,22 @@
+{
+  "name": "dhbw_tinder",
+  "version": "0.0.1",
+  "description": "DHBW Tinder Web App",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fritzlukas/DHBWTinder.git"
+  },
+  "author": "Lukas Fritz, Lukas Melcher, Tobias Penner, Max Finkenbeiner",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fritzlukas/DHBWTinder/issues"
+  },
+  "homepage": "https://github.com/fritzlukas/DHBWTinder#readme",
+  "dependencies": {
+    "express": "^4.17.2"
+  }
+}
