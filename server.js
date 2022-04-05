@@ -134,7 +134,7 @@ router.get('/', function(req, res) {
 age=Math.floor(Math.random() * 40);
 router.get('/profiles', function(req, res) {
     return res.json({name:'Claire-Ann Lage',
-            age: age,
+            age: Math.floor(Math.random() * 40),
             ort:'Karlsruhe',
             studiengang:'International Management',
             link:'https://c6oxm85c.cloudimg.io/width/700/png-lossless.fgaussian0.foil1/https://az617363.vo.msecnd.net/imgmodels/models/MD10002949/r1-07980-00136be87ce8b78f472bf44518b096612dcd.jpg',
