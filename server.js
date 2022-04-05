@@ -201,7 +201,7 @@ let clicks = [0, 0, 0, 0, 0, 0, 0]; //KA, MA, ST, LÖ, MO, VI, UL
             clicks[6]++;
         }
     });
-    return res.json({ 'standort': [{ 'karlsruhe': clicks[0] }, { 'mannheim': clicks[1] }, { 'stuttgart': clicks[2] }, { 'lörrach': clicks[3] }, { 'mosbach': clicks[4] }, { 'villingen-schwenningen': clicks[5] }, { 'ulm': clicks[6] }] });
+    return res.json( [{ 'karlsruhe': clicks[0] }, { 'mannheim': clicks[1] }, { 'stuttgart': clicks[2] }, { 'lörrach': clicks[3] }, { 'mosbach': clicks[4] }, { 'villingen-schwenningen': clicks[5] }, { 'ulm': clicks[6] }] );
 });
 
 router.put('/updateProfile', async(req, res) => {
