@@ -130,10 +130,17 @@ const data = [{
 router.get('/', function(req, res) {
     return res.json({ message: 'Tinder DHBW Web App!' });
 });
-// return random profile  
+// return random profile 
+let prevIndex, newIndex = 0;
 router.get('/profiles', function(req, res) {
-    datasize = data.length;
-    return res.json(data[Math.floor(Math.random() * datasize)]);
+    do {
+     newIndex = Math.floor(Math.random() * data.length);
+    }
+    while (newIndex == prevIndex);
+
+    prevIndex = newIndex;
+    
+    return res.json(data[newIndex]);
 });
 
 router.get('/ranking', function(req, res) {
