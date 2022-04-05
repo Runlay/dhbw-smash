@@ -22,6 +22,110 @@ var port = process.env.PORT || 8080; // set our port
 // =============================================================================
 var router = express.Router(); // get an instance of the express Router
 
+
+// temp data
+const data = [{
+    name: 'Claire-Ann Lage',
+    age: '28',
+    ort: 'Karlsruhe',
+    beruf: 'Dozentin DHBW Karlsruhe',
+    studiengang: 'International Management',
+    link: 'https://cdn.businessinsider.de/wp-content/uploads/2021/05/609e801067e41a00186220fb-1024x768.jpg',
+    hobbies: 'kochen, reiten',
+    standort: 'Karlsruhe',
+    clicked: '5'
+    },
+    {
+    name: 'Hella Kot',
+    age: '36',
+    ort: 'Pforzheim',
+    beruf: 'IT-Security Consultant',
+    studiengang: 'Wirtschaftsinformatik Software Engineering/Data Science',
+    link: 'https://1.bp.blogspot.com/-NGcQZkEKqmE/Xp8V_afb-cI/AAAAAAAACas/XQ07iFaIQwMIeX6phjYT9o4obdxDqlUUgCLcBGAsYHQ/s1600/Elena%2B101.jpeg',
+    hobbies: 'hacken, chatten',
+    standort: 'Karlsruhe',
+    clicked: '10'
+    },
+    {
+    name: 'Rainer Deutschmann',
+    age: '45',
+    ort: 'Stuttgart',
+    beruf: 'Germanist',
+    studiengang: 'Germanistik',
+    link: 'https://mytie.info/wp-content/uploads/2019/05/frisuren-fur-manner-ab-50-jahren-20-besten-ideen-trendfrisuren-herren-frisuren-ab-50-jahre-2019-mogen-of-frisuren-fur-manner-ab-50-jahren.jpg',
+    hobbies: 'lesen',
+    standort: 'Stuttgart',
+    clicked: '2'
+    },
+    {
+    name: 'Sergex Fehrlich',
+    age: '56',
+    ort: 'Lörrach',
+    beruf: 'IT-Security Consultant Russischer Inlandsgeheimdienst',
+    studiengang: 'International Management',
+    link: 'https://www.bremer-dachdecker.de/images/aktuell/2018_tuedel_3.jpg',
+    hobbies: 'hacken',
+    standort: 'Lörrach',
+    clicked: '0'
+    },
+    {
+    name: 'Hans-Jürgen Höpfner',
+    age: '50',
+    ort: 'Ispringen',
+    beruf: 'Braumeister',
+    studiengang: 'Food Management',
+    link: 'https://archzine.net/wp-content/uploads/2015/11/Johnny-Depp-Brille-Kleidung-Hut-hipster-style.jpg',
+    hobbies: 'brauen, golfen',
+    standort: 'Stuttgart',
+    clicked: '6'
+    },
+    {
+    name: 'Klaus Uhr',
+    age: '40',
+    ort: 'Mannheim',
+    beruf: 'Sekretariat DHBW Mannheim',
+    studiengang: 'Wirtschaftsingenieurwesen',
+    link: 'https://archzine.net/wp-content/uploads/2015/11/Ryan-Gosling-schwarze-Jacke-symoatisches-Modell-hornbrille.jpg',
+    hobbies: 'gamen',
+    standort: 'Mannheim',
+    clicked: '7'
+    },
+    {
+    name: 'Jürgen Jochen',
+    age: '25',
+    ort: 'Ulm',
+    beruf: 'Buchhalter',
+    studiengang: 'International Business',
+    link: 'https://archzine.net/wp-content/uploads/2015/11/Junge-Jeans-blauer-Pullover-Halstuch-nerd-brille-schwarze-Rahmen.jpg',
+    hobbies: 'kassierer im verein, lotto spielen',
+    standort: 'Ulm',
+    clicked: '1'
+    },
+    {
+    name: 'Franz Ohse',
+    age: '30',
+    ort: 'Straßburg',
+    beruf: 'Dozent DHBW Karlsruhe',
+    studiengang: 'BWL Digital Business Management',
+    link: 'https://archzine.net/wp-content/uploads/2015/11/Hipster-Brille-schlichtes-Modell-h%C3%BCbscher-Mann.jpg',
+    hobbies: 'backen, surfen',
+    standort: 'Lörrach',
+    clicked: '5'
+    },
+    {
+    name: 'Jana Türlich',
+    age: '29',
+    ort: 'Villingen',
+    beruf: 'Dozentin DHBW Villingen-Schwenningen',
+    studiengang: 'International Management',
+    link: 'https://archzine.net/wp-content/uploads/2015/11/sympatisches-M%C3%A4dchen-Hipster-Look-hornbrille-runde-Form.jpg',
+    hobbies: 'schwimmen, schießverein, bmx',
+    standort: 'Villingen-Schwenningen',
+    clicked: '3'
+    }
+    ]
+
+
 // test route to make sure everything is working (accessed at GET http://localhost:8080/api)
 router.get('/', function(req, res) {
     return res.json({ message: 'Tinder DHBW Web App!' });
@@ -37,36 +141,35 @@ router.get('/profiles', function(req, res) {
 });
 
 router.get('/ranking', function(req, res) {
-    return res.json(
-        [
-            {
-                name:'Claire-Ann Lage',
-                age:'28',
-                ort:'Karlsruhe',
-                studiengang:'International Management',
-                link:'https://c6oxm85c.cloudimg.io/width/700/png-lossless.fgaussian0.foil1/https://az617363.vo.msecnd.net/imgmodels/models/MD10002949/r1-07980-00136be87ce8b78f472bf44518b096612dcd.jpg',
-                hobbies:'kochen, reiten'
-            },
-            {
-                name:'Claire-Ann Lage',
-                age:'28',
-                ort:'Karlsruhe',
-                studiengang:'International Management',
-                link:'https://c6oxm85c.cloudimg.io/width/700/png-lossless.fgaussian0.foil1/https://az617363.vo.msecnd.net/imgmodels/models/MD10002949/r1-07980-00136be87ce8b78f472bf44518b096612dcd.jpg',
-                hobbies:'kochen, reiten'
-            },
-            {   
-                name:'Claire-Ann Lage',
-                age:'28',
-                ort:'Karlsruhe',
-                studiengang:'International Management',
-                link:'https://c6oxm85c.cloudimg.io/width/700/png-lossless.fgaussian0.foil1/https://az617363.vo.msecnd.net/imgmodels/models/MD10002949/r1-07980-00136be87ce8b78f472bf44518b096612dcd.jpg',
-                hobbies:'kochen, reiten'
-            }
-        ]
-        );
+    return res.json(data);
     });
-
+// 
+// [
+//     {
+//         name:'Claire-Ann Lage',
+//         age:'28',
+//         ort:'Karlsruhe',
+//         studiengang:'International Management',
+//         link:'https://c6oxm85c.cloudimg.io/width/700/png-lossless.fgaussian0.foil1/https://az617363.vo.msecnd.net/imgmodels/models/MD10002949/r1-07980-00136be87ce8b78f472bf44518b096612dcd.jpg',
+//         hobbies:'kochen, reiten'
+//     },
+//     {
+//         name:'Claire-Ann Lage',
+//         age:'28',
+//         ort:'Karlsruhe',
+//         studiengang:'International Management',
+//         link:'https://c6oxm85c.cloudimg.io/width/700/png-lossless.fgaussian0.foil1/https://az617363.vo.msecnd.net/imgmodels/models/MD10002949/r1-07980-00136be87ce8b78f472bf44518b096612dcd.jpg',
+//         hobbies:'kochen, reiten'
+//     },
+//     {   
+//         name:'Claire-Ann Lage',
+//         age:'28',
+//         ort:'Karlsruhe',
+//         studiengang:'International Management',
+//         link:'https://c6oxm85c.cloudimg.io/width/700/png-lossless.fgaussian0.foil1/https://az617363.vo.msecnd.net/imgmodels/models/MD10002949/r1-07980-00136be87ce8b78f472bf44518b096612dcd.jpg',
+//         hobbies:'kochen, reiten'
+//     }
+// ]
     router.get('/map', function(req, res) {
            return res.json({ 'standort':[{'karlsruhe': '30'}, {'mannheim':'2'}, {'stuttgart':'3'}, {'lörrach':'4'}] });
         });
