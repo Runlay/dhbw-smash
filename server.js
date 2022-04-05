@@ -62,7 +62,7 @@ const data = [{
     },
     {
         id:"4",
-    name: 'Sergex Fehrlich',
+    name: 'Sergey Fehrlich',
     age: '56',
     ort: 'Lörrach',
     beruf: 'IT-Security Consultant Russischer Inlandsgeheimdienst',
