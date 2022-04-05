@@ -139,7 +139,7 @@ router.get('/profiles', function(req, res) {
     while (newIndex == prevIndex);
 
     prevIndex = newIndex;
-    
+
     return res.json(data[newIndex]);
 });
 
@@ -173,9 +173,27 @@ router.get('/ranking', function(req, res) {
 //         hobbies:'kochen, reiten'
 //     }
 // ]
-    router.get('/map', function(req, res) {
-           return res.json({ 'standort':[{'karlsruhe': '30'}, {'mannheim':'2'}, {'stuttgart':'3'}, {'lörrach':'4'}] });
-        });
+router.get('/map', function(req, res) {
+let clicks = [0, 0, 0, 0, 0, 0, 0]; //KA, MA, ST, LÖ, MO, VI, UL
+    data.forEach(element => {
+        if (element.standort == 'Karlsruhe') {
+            clicks[0]++;
+        } else if (element.standort == 'Mannheim') {
+            clicks[1]++;
+        } else if (element.standort == 'Stuttgart') {
+            clicks[2]++;
+        } else if (element.standort == 'Lörrach') {
+            clicks[3]++;
+        } else if (element.standort == 'Mosbach') {
+            clicks[4]++;
+        } else if (element.standort == 'Villingen-Schwenningen') {
+            clicks[5]++;
+        } else if (element.standort == 'Ulm') {
+            clicks[6]++;
+        }
+    });
+    return res.json({ 'standort': [{ 'karlsruhe': clicks[0] }, { 'mannheim': clicks[1] }, { 'stuttgart': clicks[2] }, { 'lörrach': clicks[3] }, { 'mosbach': clicks[4] }, { 'villingen-schwenningen': clicks[5] }, { 'ulm': clicks[6] }] });
+});
 
 // more routes for our API will happen here
 
