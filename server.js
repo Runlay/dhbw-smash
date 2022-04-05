@@ -25,6 +25,7 @@ var router = express.Router(); // get an instance of the express Router
 
 // temp data
 const data = [{
+    id:"1",
     name: 'Claire-Ann Lage',
     age: '28',
     ort: 'Karlsruhe',
@@ -36,6 +37,7 @@ const data = [{
     clicked: '5'
     },
     {
+        id:"2",
     name: 'Hella Kot',
     age: '36',
     ort: 'Pforzheim',
@@ -47,6 +49,7 @@ const data = [{
     clicked: '10'
     },
     {
+        id:"3",
     name: 'Rainer Deutschmann',
     age: '45',
     ort: 'Stuttgart',
@@ -58,6 +61,7 @@ const data = [{
     clicked: '2'
     },
     {
+        id:"4",
     name: 'Sergex Fehrlich',
     age: '56',
     ort: 'Lörrach',
@@ -69,6 +73,7 @@ const data = [{
     clicked: '0'
     },
     {
+        id:"5",
     name: 'Hans-Jürgen Höpfner',
     age: '50',
     ort: 'Ispringen',
@@ -80,6 +85,7 @@ const data = [{
     clicked: '6'
     },
     {
+        id:"6",
     name: 'Klaus Uhr',
     age: '40',
     ort: 'Mannheim',
@@ -91,6 +97,7 @@ const data = [{
     clicked: '7'
     },
     {
+        id:"7",
     name: 'Jürgen Jochen',
     age: '25',
     ort: 'Ulm',
@@ -102,6 +109,7 @@ const data = [{
     clicked: '1'
     },
     {
+        id:"8",
     name: 'Franz Ohse',
     age: '30',
     ort: 'Straßburg',
@@ -113,6 +121,7 @@ const data = [{
     clicked: '5'
     },
     {
+        id:"9",
     name: 'Jana Türlich',
     age: '29',
     ort: 'Villingen',
@@ -196,9 +205,18 @@ let clicks = [0, 0, 0, 0, 0, 0, 0]; //KA, MA, ST, LÖ, MO, VI, UL
 });
 
 router.put('/updateProfile', async(req, res) => {
-    console.log(req);
+    console.log(req.query);
+    let index = req.query.id;
+    let counter = 0;
+    while (data[counter].id != index) {
+    counter++;
+    }
+    console.log("Vor Profiländerung", data[counter]);
+    data[counter].clicked++;
+    console.log("Nach Profiländerung", data[counter]);
+    
     res.send("PUT request success");
-});
+    });
 
 // more routes for our API will happen here
 
