@@ -220,9 +220,7 @@ let clicks = [0, 0, 0, 0, 0, 0, 0]; //KA, MA, ST, LÖ, MO, VI, UL
         { 'ort':'Mosbach', 'clicks': clicks[4] },
         { 'ort':'Villingen-Schwenningen', 'clicks': clicks[5] },
         { 'ort':'Ulm', 'clicks': clicks[6] },
-    
-
-        { 'mannheim': clicks[1] }, { 'stuttgart': clicks[2] }, { 'lörrach': clicks[3] }, { 'mosbach': clicks[4] }, { 'villingen-schwenningen': clicks[5] }, { 'ulm': clicks[6] }] );
+    ])
 });
 
 router.put('/updateProfile', async(req, res) => {
