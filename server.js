@@ -153,8 +153,19 @@ router.get('/profiles', function(req, res) {
 });
 
 router.get('/ranking', function(req, res) {
-    return res.json(data);
+    console.log("Sortierte Ausgabe der Daten");
+    return res.json(data.sort(sortByProperty("clicked")));
     });
+    
+function sortByProperty(property){ 
+    return function(a,b){ 
+        if(a[property] < b[property]) 
+            return 1; 
+        else if(a[property] > b[property]) 
+            return -1; 
+        return 0; 
+    } 
+};
 // 
 // [
 //     {
