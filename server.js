@@ -30,7 +30,7 @@ const data = [{
     ort: 'Karlsruhe',
     beruf: 'Dozentin DHBW Karlsruhe',
     studiengang: 'International Management',
-    link: 'https://cdn.businessinsider.de/wp-content/uploads/2021/05/609e801067e41a00186220fb-1024x768.jpg',
+    link: 'https://c6oxm85c.cloudimg.io/width/700/png-lossless.fgaussian0.foil1/https://az617363.vo.msecnd.net/imgmodels/models/MD10002949/r1-07980-00136be87ce8b78f472bf44518b096612dcd.jpg',
     hobbies: 'kochen, reiten',
     standort: 'Karlsruhe',
     clicked: '5'
