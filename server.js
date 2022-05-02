@@ -23,7 +23,7 @@ var port = process.env.PORT || 8080; // set our port
 var router = express.Router(); // get an instance of the express Router
 
 
-// temp data
+// Dummy Data
 const data = [{
     id:1,
     name: 'Claire-Ann Lage',
@@ -63,11 +63,11 @@ const data = [{
     {
         id:4,
     name: 'Sergey Fehrlich',
-    age: '56',
+    age: '30',
     ort: 'Lörrach',
     beruf: 'IT-Security Consultant Russischer Inlandsgeheimdienst',
     studiengang: 'International Management',
-    link: 'https://www.bremer-dachdecker.de/images/aktuell/2018_tuedel_3.jpg',
+    link: 'https://img.freepik.com/fotos-kostenlos/smiley-mann-der-sich-draussen-entspannt_23-2148739334.jpg?t=st=1651509118~exp=1651509718~hmac=5658fdcac4c6710adbc23fe2e32161a286918a2ced760789d2f3c31a55a1adbe&w=740',
     hobbies: 'hacken',
     standort: 'Lörrach',
     clicked: 0,
@@ -91,7 +91,7 @@ const data = [{
     ort: 'Mannheim',
     beruf: 'Sekretariat DHBW Mannheim',
     studiengang: 'Wirtschaftsingenieurwesen',
-    link: 'https://archzine.net/wp-content/uploads/2015/11/Ryan-Gosling-schwarze-Jacke-symoatisches-Modell-hornbrille.jpg',
+    link: 'https://www.liebeleben.com/wp-content/uploads/2019/02/Grenzenlos-Mann-2.jpg',
     hobbies: 'gamen',
     standort: 'Mannheim',
     clicked: 7,
@@ -140,6 +140,9 @@ router.get('/', function(req, res) {
     return res.json({ message: 'Tinder DHBW Web App!' });
 });
 // return random profile 
+
+// Gibt ein zufälliges Profil zurück. Ein Profil wird dabei nie mehrmals hintereinander zurückgegeben 
+// returns a random profil. No profile
 let prevIndex, newIndex = 0;
 router.get('/profiles', function(req, res) {
     do {
@@ -152,6 +155,8 @@ router.get('/profiles', function(req, res) {
     return res.json(data[newIndex]);
 });
 
+// Gibt das aktuelle Ranking zurück, von der beliebtesten Person auf dem ersten Platz (meisten Clicks) zur
+// unbeliebtesten Person auf dem letzten Platz (wenigsten Clicks)
 router.get('/ranking', function(req, res) {
     console.log("Sortierte Ausgabe der Daten");
     return res.json(data.sort(sortByProperty("clicked")));
@@ -166,33 +171,8 @@ function sortByProperty(property){
         return 0; 
     } 
 };
-// 
-// [
-//     {
-//         name:'Claire-Ann Lage',
-//         age:'28',
-//         ort:'Karlsruhe',
-//         studiengang:'International Management',
-//         link:'https://c6oxm85c.cloudimg.io/width/700/png-lossless.fgaussian0.foil1/https://az617363.vo.msecnd.net/imgmodels/models/MD10002949/r1-07980-00136be87ce8b78f472bf44518b096612dcd.jpg',
-//         hobbies:'kochen, reiten'
-//     },
-//     {
-//         name:'Claire-Ann Lage',
-//         age:'28',
-//         ort:'Karlsruhe',
-//         studiengang:'International Management',
-//         link:'https://c6oxm85c.cloudimg.io/width/700/png-lossless.fgaussian0.foil1/https://az617363.vo.msecnd.net/imgmodels/models/MD10002949/r1-07980-00136be87ce8b78f472bf44518b096612dcd.jpg',
-//         hobbies:'kochen, reiten'
-//     },
-//     {   
-//         name:'Claire-Ann Lage',
-//         age:'28',
-//         ort:'Karlsruhe',
-//         studiengang:'International Management',
-//         link:'https://c6oxm85c.cloudimg.io/width/700/png-lossless.fgaussian0.foil1/https://az617363.vo.msecnd.net/imgmodels/models/MD10002949/r1-07980-00136be87ce8b78f472bf44518b096612dcd.jpg',
-//         hobbies:'kochen, reiten'
-//     }
-// ]
+
+//Gibt zurück wie viele Personen an welchem Standort gelistet sind
 router.get('/map', function(req, res) {
 let clicks = [0, 0, 0, 0, 0, 0, 0]; //KA, MA, ST, LÖ, MO, VI, UL
     data.forEach(element => {
