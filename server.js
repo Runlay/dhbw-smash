@@ -142,12 +142,12 @@ router.get('/', function(req, res) {
 // return random profile 
 
 // returns a random profil. A profile cannot be returned twice in a row
-let prevIndex, newIndex = 0;
+let clickedIndex, prevIndex, newIndex = 0;
 router.get('/profiles', function(req, res) {
     do {
      newIndex = Math.floor(Math.random() * data.length);
     }
-    while (newIndex == prevIndex);
+    while (newIndex == prevIndex || newIndex == clickedIndex);
 
     prevIndex = newIndex;
 
@@ -205,6 +205,7 @@ let clicks = [0, 0, 0, 0, 0, 0, 0]; //KA, MA, ST, LÖ, MO, VI, UL
 router.put('/updateProfile', async(req, res) => {
     console.log(req.query);
     let index = req.query.id;
+    clickedIndex = index;
     let counter = 0;
     while (data[counter].id != index) {
     counter++;
