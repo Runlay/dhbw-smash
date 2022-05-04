@@ -140,12 +140,12 @@ router.get('/', function(req, res) {
     return res.json({ message: 'Tinder DHBW Web App!' });
 });
 // return random profile 
-let prevIndex, newIndex = 0;
+let clickedIndex = 0, prevIndex = -1, newIndex = 0;
 router.get('/profiles', function(req, res) {
     do {
      newIndex = Math.floor(Math.random() * data.length);
     }
-    while (newIndex == prevIndex);
+    while (newIndex == prevIndex || clickedIndex == newIndex);
 
     prevIndex = newIndex;
 
@@ -166,33 +166,7 @@ function sortByProperty(property){
         return 0; 
     } 
 };
-// 
-// [
-//     {
-//         name:'Claire-Ann Lage',
-//         age:'28',
-//         ort:'Karlsruhe',
-//         studiengang:'International Management',
-//         link:'https://c6oxm85c.cloudimg.io/width/700/png-lossless.fgaussian0.foil1/https://az617363.vo.msecnd.net/imgmodels/models/MD10002949/r1-07980-00136be87ce8b78f472bf44518b096612dcd.jpg',
-//         hobbies:'kochen, reiten'
-//     },
-//     {
-//         name:'Claire-Ann Lage',
-//         age:'28',
-//         ort:'Karlsruhe',
-//         studiengang:'International Management',
-//         link:'https://c6oxm85c.cloudimg.io/width/700/png-lossless.fgaussian0.foil1/https://az617363.vo.msecnd.net/imgmodels/models/MD10002949/r1-07980-00136be87ce8b78f472bf44518b096612dcd.jpg',
-//         hobbies:'kochen, reiten'
-//     },
-//     {   
-//         name:'Claire-Ann Lage',
-//         age:'28',
-//         ort:'Karlsruhe',
-//         studiengang:'International Management',
-//         link:'https://c6oxm85c.cloudimg.io/width/700/png-lossless.fgaussian0.foil1/https://az617363.vo.msecnd.net/imgmodels/models/MD10002949/r1-07980-00136be87ce8b78f472bf44518b096612dcd.jpg',
-//         hobbies:'kochen, reiten'
-//     }
-// ]
+
 router.get('/map', function(req, res) {
 let clicks = [0, 0, 0, 0, 0, 0, 0]; //KA, MA, ST, LÖ, MO, VI, UL
     data.forEach(element => {
@@ -226,6 +200,7 @@ let clicks = [0, 0, 0, 0, 0, 0, 0]; //KA, MA, ST, LÖ, MO, VI, UL
 router.put('/updateProfile', async(req, res) => {
     console.log(req.query);
     let index = req.query.id;
+    clickedIndex = index;
     let counter = 0;
     while (data[counter].id != index) {
     counter++;
