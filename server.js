@@ -141,7 +141,8 @@ router.get('/', function(req, res) {
 });
 // return random profile 
 
-// returns a random profil. A profile cannot be returned twice in a row
+// Gibt ein zufälliges Profil zurück. Ein Profil wird dabei nie mehrmals hintereinander zurückgegeben 
+// returns a random profil. No profile
 let prevIndex, newIndex = 0;
 router.get('/profiles', function(req, res) {
     do {
@@ -154,8 +155,8 @@ router.get('/profiles', function(req, res) {
     return res.json(data[newIndex]);
 });
 
-
-// returns a list of all persons ranked by the most clicked person at the top
+// Gibt das aktuelle Ranking zurück, von der beliebtesten Person auf dem ersten Platz (meisten Clicks) zur
+// unbeliebtesten Person auf dem letzten Platz (wenigsten Clicks)
 router.get('/ranking', function(req, res) {
     console.log("Sortierte Ausgabe der Daten");
     return res.json(data.sort(sortByProperty("clicked")));
@@ -171,7 +172,7 @@ function sortByProperty(property){
     } 
 };
 
-// returns where how many persons are situated
+//Gibt zurück wie viele Personen an welchem Standort gelistet sind
 router.get('/map', function(req, res) {
 let clicks = [0, 0, 0, 0, 0, 0, 0]; //KA, MA, ST, LÖ, MO, VI, UL
     data.forEach(element => {
