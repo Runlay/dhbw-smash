@@ -140,7 +140,7 @@ router.get('/', function(req, res) {
     return res.json({ message: 'Tinder DHBW Web App!' });
 });
 // return random profile 
-let clickedIndex = 0, prevIndex = -1, newIndex = 0;
+let clickedIndex = -2, prevIndex = -1, newIndex = 0;
 router.get('/profiles', function(req, res) {
     do {
      newIndex = Math.floor(Math.random() * data.length);
