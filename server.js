@@ -145,7 +145,7 @@ router.get('/profiles', function(req, res) {
     do {
      newIndex = Math.floor(Math.random() * data.length);
     }
-    while (newIndex == prevIndex || clickedIndex == newIndex);
+    while (newIndex == prevIndex || clickedIndex == data[newIndex].id);
 
     prevIndex = newIndex;
 
@@ -207,8 +207,7 @@ router.put('/updateProfile', async(req, res) => {
     }
     console.log("Vor Profiländerung", data[counter]);
     data[counter].clicked++;
-    console.log("Nach Profiländerung", data[counter]);
-    
+    console.log("Nach Profiländerung", data[counter]);    
     res.send("PUT request success");
     });
 
